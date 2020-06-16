@@ -1,0 +1,47 @@
+# Maybe include an "enabled" toggle?
+
+get_angle_coeffs(car) {
+	a0 = angles[0] ** 2
+	a1 = angles[1] ** 2
+	a2 = angles[2] ** 2
+	a3 = angles[3] ** 2
+
+	diam_yz = a0 + a2
+	diam_xz = a1 + a3
+	up = diam_yz / diam_xz
+
+	east = 2 * (a1 / diam_xz) - 1
+	east *= -1
+
+	south = math.sqrt(1 - (east ** 2))
+	if angles[1] * angles[3] < 0.0:
+		south *= -1
+
+	return east, up, south
+}
+
+fly(car) {
+	const player = 0x80673ef0
+	if car != player:
+		return
+
+	car.weight = 0
+
+	stick_x = *(char*)0xcd006406
+	stick_y = *(char*)0xcd006407
+
+	if stick_x > -20 && stick_x < 20:
+		stick_x = 0
+	if stick_y > -20 && stick_y < 20:
+		stick_y = 0
+
+	car.yaw_vel = stick_x / (128 * 1.5)
+	car.pitch_vel = stick_y / (128 * 1.5)
+
+	x, y, z = get_angle_coeffs(car)
+	car.x_vel = x * speed
+	car.y_vel = y * speed
+	car.z_vel = z * speed
+}
+
+place_jump(0x8030fca8, fly)

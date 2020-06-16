@@ -1,0 +1,31 @@
+lis r5,0x0020
+li r6,0x0038
+bl get_held_frames
+
+cntlzw r4,r3
+li r5,31
+sub r5,r5,r4
+li r6,1
+slw r6,r6,r5
+xor r3,r3,r6
+
+subi r4,r4,8
+slw r3,r3,r4
+
+addi r5,r5,127
+slwi r5,r5,23
+
+add r3,r4,r5
+
+r3 = 19 (0000 0000 0000 0000 0000 0000 0001 0011)
+r4 = 27
+r5 = 31
+r5 = 4
+r6 = 1
+r6 = 16
+r3 = 3
+r4 = 19
+r3 = 0x180000
+r5 = 131
+r5 = 0x41800000
+r3 = 0x41980000

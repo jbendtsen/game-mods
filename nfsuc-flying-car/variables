@@ -1,0 +1,18 @@
+80673ef0: player's car struct
+80318ee0: collision with objects
+
+
+8030ed4c - ORs flags with 0x400
+80316794 - ANDs flags with 0xeff3
+8030ec14 - rlwinm flags,flags,0,22,20
+8030f8e8 - ORs flags with 0x40
+8030f530 - "                 "
+8030eb8c - 0,30,28
+
+80315418 - ORs flags with 0x4 !!!!!!!
+
+803153dc - Wall collision routine !!!!!!
+
+8030e89c - (re)spawn function
+802ed628
+802ecb6c - Big spawn function thing

@@ -1,0 +1,8 @@
+These hexadecimal numbers (eg 0x40ac90) represent addresses in RAM where these functions are located.
+To convert RAM addresses into EXE offsets, simply eliminate the 4 at the front.
+
+0x40ac90: void display_img(int x, int y, int unk1, int unk2);
+0x4187f0: int check_player_hit(object_t *enemy);
+0x420640: void play_sound_effect(int sound_id, int status);
+0x471d50: void check_object_hit()
+0x480d30: void memset(void *ptr, char c, int size);

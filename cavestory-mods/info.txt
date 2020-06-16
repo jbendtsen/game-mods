@@ -1,0 +1,10 @@
+RAM to EXE Offsets:
+RAM 0x401000 = EXE 0x1000
+diff = 0x400000
+
+Free Space:
+(RAM) 48B900 - 48BFFF: 0x700 (1792) bytes = 1.75 K
+
+Pixels:
+512 subpixels / pixel
+16x16 pixel tiles
